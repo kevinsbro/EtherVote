@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<title>App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="images/icon.png">
+
+	<!-- Angular Material style sheet -->
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<!-- App style sheet -->
+	<link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body ng-app="App" ng-cloak>
+  
+	<!-- Start of main HTML -->
+	<div ng-controller="AppCtrl" layout="column" style="height:100%; width:100%; background-color:#868686;" ng-cloak>
+		<div class="center md-whiteframe-2dp">
+		
+			<!-- Web3 Error -->
+			<div class="web3error" ng-hide="web3Enabled">Not a Web3 Enabled Browser</div>
+			
+			<!-- Header -->
+			<div class="header md-whiteframe-2dp" ng-show="web3Enabled">
+				<div class="title">Which is Better? (Click to Vote)</div>
+			</div>
+			
+			<!-- Body -->
+			<div class="stats" ng-show="web3Enabled">
+				<md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="4"
+						md-row-height="1:1"	md-gutter="12px" md-gutter-gt-sm="8px">
+					<md-grid-tile class="option md-whiteframe-2dp" md-rowspan="1" md-colspan="1" 
+							ng-repeat="option in options" ng-click="vote(option, $event)" 
+							ng-style="{'background-image': 'url(images/'+option.image+')'}">
+						<md-grid-tile-footer>
+							<h3>{{option.name}}</h3>
+							<div class="percentage">
+								<div class="value" ng-style="{'width':option.percentage*100+'%'}"></div>
+								<div class="text">{{option.amount}} Eth</div>
+							</div>
+						</md-grid-tile-footer>
+					</md-grid-tile>
+				</md-grid-list>
+				
+				<br/><br/><br/>
+				<md-button class="md-raised md-primary" ng-click="endVoting($event)">End Voting</md-button>
+			</div>
+		
+		</div>
+	</div>
+	<!-- End of main HTML -->
+
+	<!-- Angular.js and Angular Material scripts -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	
+	<!-- Lib scripts -->
+    <script src="js/lib/web3.min.js"></script>
+    <script src="js/lib/truffle-contract.js"></script>
+
+	<!-- App scripts -->
+	<script src="js/controller.js"></script>
+	<script src="js/web3Service.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* CSS Data */
+div.center {
+	width: 100%;
+    max-width: 1280px;
+    min-height: 100%;
+    background-color: #fafafa;
+    margin: 0 auto;
+	position: relative;
+}
+
+div.web3error {    
+	width: 100%;
+    text-align: center;
+    font-size: 30px;
+    height: 400px;
+    line-height: 400px;
+}
+
+div.header {
+	width: 100%;
+	height: 75px;
+	background-color: #C4C4C4;
+	z-index: 600;
+}
+
+div.header .title {
+	width: calc(100% - 200px);
+	height: 75px;
+    line-height: 75px;
+	text-align: center;
+    font-size: 22pt;
+	position: absolute;
+	right: 87px;
+}
+
+div.stats {
+	padding: 20px;
+	width: calc(100% - 40px);
+    height: calc(100% - 115px);
+	position: absolute;
+	bottom: 0px;
+	background-color: #EFEFEF;
+}
+div.stats .option {
+	background-size: contain;
+	background-color: #F9F9F9;
+}
+div.stats .option h3 {
+    font-size: 20px;
+	top: 10px;
+    position: absolute;
+}
+div.stats .option md-grid-tile-footer {
+	height: 80px;
+	transition: all .1s linear;
+}
+div.stats .option md-grid-tile-footer div.percentage {
+    width: calc(100% - 32px);
+	background-color: #9da6d8a1;
+    height: 30px;
+    top: 40px;
+    left: 16px;
+    position: absolute;
+    line-height: 30px;
+}
+div.stats .option md-grid-tile-footer div.percentage div.value {
+    background-color: #5c6bc0;
+	position: absolute;
+	height: 100%
+}
+div.stats .option md-grid-tile-footer div.percentage div.text {
+	position: absolute;
+	left: 5px;
+	height: 100%
+}
+div.stats .option:hover {
+	cursor: pointer;
+}
+div.stats .option:hover md-grid-tile-footer {
+	height: 85px;
+}
